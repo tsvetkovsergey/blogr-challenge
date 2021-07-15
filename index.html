@@ -8,6 +8,8 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
+  <link rel="stylesheet" href="css/style.css">
+
   <script defer src="script/main.js"></script>
 
   <title>Frontend Mentor | [Blogr]</title>
@@ -26,61 +28,125 @@
 </head>
 
 <body>
-  Product
+  <!-- ================================= -->
+  <!-- HEADER -->
+  <header class="header">
 
-  Overview
-  Pricing
-  Marketplace
-  Features
-  Integrations
+    <div class="header__navbar">
+      <img src="images/logo.svg" alt="Blogr logo" class="header__logo">
 
-  Company
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#" class="nav__link">Product</a>
+            <ul class="nav__list">
+              <li class="list__item"><a href="#" class="nav__link">Overview</a></li>
+              <li class="list__item"><a href="#" class="nav__link">Pricing</a></li>
+              <li class="list__item"><a href="#" class="nav__link">Marketplace</a></li>
+              <li class="list__item"><a href="#" class="nav__link">Features</a></li>
+              <li class="list__item"><a href="#" class="nav__link">Integrations</a></li>
+            </ul>
+          </li>
 
-  About
-  Team
-  Blog
-  Careers
+          <li class="nav__item">
+            <a href="#" class="nav__link">Company</a>
+            <ul class="nav__list">
+              <li class="list__item"><a href="#" class="nav__link">About</a></li>
+              <li class="list__item"><a href="#" class="nav__link">Team</a></li>
+              <li class="list__item"><a href="#" class="nav__link">Blog</a></li>
+              <li class="list__item"><a href="#" class="nav__link">Careers</a></li>
+            </ul>
+          </li>
 
-  Connect
+          <li class="nav__item">
+            <a href="#" class="nav__link">Connect</a>
+            <ul class="nav__list">
+              <li class="list__item"><a href="#" class="nav__link">Contact</a></li>
+              <li class="list__item"><a href="#" class="nav__link">Newsletter</a></li>
+              <li class="list__item"><a href="#" class="nav__link">LinkedIn</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
 
-  Contact
-  Newsletter
-  LinkedIn
+      <a href="#" class="header__link">Login</a>
+      <a href="#" class="btn btn--primary">Sign Up</a>
+    </div>
 
-  Login
-  Sign Up
+    <div class="header__content">
+      <h1 class="header__title">A modern publishing platform</h1>
+      <p class="header__desc">Grow your audience and build your online brand</p>
+      <a href="#" class="btn btn--primary">Start for Free</a>
+      <a href="#" class="btn btn--secondary">Learn More</a>
+    </div>
+  </header>
 
-  A modern publishing platform
-  Grow your audience and build your online brand
+  <main class="main">
+    <!-- ================================= -->
+    <!-- FUTURE SECTION -->
+    <section class="future">
+      <h2 class="future__title">Designed for the future</h2>
 
-  Start for Free
-  Learn More
+      <div class="card">
+        <h3 class="card__title">Introducing an extensible editor</h3>
+        <p class="card__desc">
+          Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content.
+          The editor supports management of multiple blogs and allows easy manipulation of embeds such as images,
+          videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or
+          change the looks of a blog.
+        </p>
+      </div>
 
-  Designed for the future
+      <div class="card">
+        <h3 class="card__title">Robust content management</h3>
+        <p class="card__desc">
+          Flexible content management enables users to easily move through posts. Increase the usability of your blog
+          by adding customized categories, sections, format, or flow. With this functionality, you’re in full control.
+        </p>
+      </div>
+    </section>
 
-  Introducing an extensible editor
-  Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content.
-  The editor supports management of multiple blogs and allows easy manipulation of embeds such as images,
-  videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or
-  change the looks of a blog.
+    <!-- ================================= -->
+    <!-- INFRASTRUCTURE SECTION -->
+    <section class="infra">
+      <div class="card">
+        <h2 class="card__title">Free, open, simple</h2>
+        <p class="card__desc">
+          Blogr is a free and open source application backed by a large community of helpful developers. It supports
+          features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools,
+          and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.
+        </p>
+      </div>
+    </section>
 
-  Robust content management
-  Flexible content management enables users to easily move through posts. Increase the usability of your blog
-  by adding customized categories, sections, format, or flow. With this functionality, you’re in full control.
+    <!-- ================================= -->
+    <!-- SIMPLE SECTION -->
+    <section class="simple">
+      <div class="card">
+        <h3 class="card__title">Powerful tooling</h3>
+        <p class="card__desc">
+          Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a
+          breeze, but capable of producing even the most complicated sites.
+        </p>
+      </div>
+    </section>
 
-  State of the Art Infrastructure
-  With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity.
-  This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.
+  </main>
 
-  Free, open, simple
-  Blogr is a free and open source application backed by a large community of helpful developers. It supports
-  features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools,
-  and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.
+  <!-- ================================= -->
+  <!-- FOOTER -->
+  <footer class="footer">
 
-  Powerful tooling
-  Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze,
-  but
-  capable of producing even the most complicated sites.
+  </footer>
+
+
+
+
+
+
+
+
+
 
   Product
 

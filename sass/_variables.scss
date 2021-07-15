@@ -1,0 +1,19 @@
+:root {
+  // Primary colors
+  --color-primary: hsl(356, 100%, 66%);
+  --color-primary-light: hsl(355, 100%, 74%);
+  --color-secondary: hsl(208, 49%, 24%);
+
+  // Neutral colors
+  --color-white: hsl(0, 0%, 100%);
+  --color-grey: hsl(240, 2%, 79%);
+  --color-grey-dark: hsl(207, 13%, 34%);
+  --color-black: hsl(240, 10%, 16%);
+
+  // Gradient
+  --color-gradient-red-light: hsl(13, 100%, 72%);
+  --color-gradient-red: hsl(353, 100%, 62%);
+
+  --color-gradient-blue: hsl(237, 17%, 21%);
+  --color-gradient-blue-light: hsl(237, 23%, 32%);
+}
