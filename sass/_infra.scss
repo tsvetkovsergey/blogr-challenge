@@ -1,0 +1,44 @@
+.infra {
+  background: url("../images/bg-pattern-circles.svg") no-repeat top 82% left
+      calc(50vw - 92rem),
+    linear-gradient(
+      to right,
+      var(--color-gradient-blue),
+      var(--color-gradient-blue-light)
+    );
+  background-size: 100rem, 100%;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+
+  height: 40rem;
+  position: relative;
+
+  &__container {
+    height: 100%;
+    align-items: center;
+  }
+
+  &__card {
+    grid-column: col-start 3 / span 2;
+
+    @media only screen and (max-width: $bp-phone-land) {
+      grid-column: center-start / center-end;
+    }
+  }
+
+  &__photo-container {
+    grid-column: center-start / span 2;
+    position: relative;
+    align-self: center;
+
+    // @media only screen and (max-width: $bp-phone-land) {
+    //   grid-column: center-start / center-end;
+    // }
+  }
+
+  &__phones {
+    position: absolute;
+    width: 100%;
+    transform: translate(-8%, -46%);
+  }
+}

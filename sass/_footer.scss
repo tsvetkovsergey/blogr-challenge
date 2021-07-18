@@ -1,0 +1,41 @@
+.footer {
+  background-color: var(--color-black);
+  padding: 7rem 0 4rem 0;
+  font-size: 1.5rem;
+
+  &__logo {
+    grid-column: center-start / span 1;
+  }
+
+  &__list {
+    color: var(--color-white);
+    font-weight: 700;
+    list-style: none;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__listname {
+    margin-top: 0.5rem;
+    margin-bottom: 3.4rem;
+  }
+
+  &__link {
+    color: var(--color-grey);
+    font-weight: 400;
+    margin-bottom: 1.6rem;
+    opacity: var(--text-opacity);
+
+    // To increase clickable area
+    padding: 0.5rem 0;
+
+    @extend %line-effect;
+    &::after {
+      // To compensate padding
+      bottom: 0.5rem;
+    }
+  }
+}

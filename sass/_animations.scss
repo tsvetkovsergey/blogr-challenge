@@ -1,0 +1,31 @@
+@keyframes circle-fill-in {
+  from {
+    clip-path: circle(0% at 0 0);
+    transform: translateX(-1rem);
+    opacity: 0.3;
+  }
+
+  to {
+    clip-path: circle(160% at 0 0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes circle-fill-out {
+  from {
+    clip-path: circle(160% at 100% 100%);
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  99% {
+    clip-path: circle(0% at 100% 100%);
+    transform: translateX(1rem);
+    opacity: 0.8;
+  }
+
+  to {
+    visibility: hidden;
+  }
+}

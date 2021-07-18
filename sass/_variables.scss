@@ -16,4 +16,18 @@
 
   --color-gradient-blue: hsl(237, 17%, 21%);
   --color-gradient-blue-light: hsl(237, 23%, 32%);
+
+  // Shadow
+  // --shadow:
+
+  // Opacity
+  --text-opacity: 0.7;
+
+  // Border
+  --border-radius: 10rem;
 }
+
+// Media Queries
+$bp-tab-port: 60em; // 960px
+$bp-tab-port-sm: 50em; // 800px
+$bp-phone-land: 44em; // 704px

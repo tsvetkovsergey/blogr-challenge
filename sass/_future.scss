@@ -1,0 +1,39 @@
+.future {
+  color: var(--color-grey-dark);
+  padding: 15rem 0 25rem 0;
+
+  position: relative;
+  overflow: hidden;
+
+  @media only screen and (max-width: $bp-tab-port) {
+    padding: 10rem 0 15vw 0;
+  }
+
+  &__title {
+    grid-column: center-start / center-end;
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: 10rem;
+  }
+
+  &__card {
+    grid-column: center-start / span 2;
+    margin-right: 2rem;
+
+    &:not(:last-child) {
+      margin-bottom: 7rem;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(8%, -50%);
+    z-index: -1;
+
+    @media only screen and (max-width: $bp-tab-port) {
+      width: 80%;
+    }
+  }
+}

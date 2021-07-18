@@ -5,3 +5,23 @@ body {
   font-family: "Overpass", sans-serif;
   font-size: 1.6rem;
 }
+
+*::selection {
+  background-color: var(--color-primary-light);
+}
+
+h1 {
+  font-size: 6rem;
+
+  @media only screen and (max-width: $bp-tab-port-sm) {
+    font-size: 5rem;
+  }
+}
+
+h2 {
+  font-size: 3.8rem;
+}
+
+h3 {
+  font-size: 2.8rem;
+}
