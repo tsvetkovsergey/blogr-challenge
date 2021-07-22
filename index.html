@@ -17,13 +17,82 @@
 
 <body>
   <!-- ================================= -->
+  <!-- NAVBAR -->
+  <div class="container navbar__container">
+    <div class="navbar">
+      <img src="images/logo.svg" alt="Blogr logo" class="navbar__logo">
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <!-- <a href="#" class="nav__link" data-name="connect">Connect <img src="images/icon-arrow-light.svg"
+                class="nav__link-arrow" alt="Menu arrow"></a> -->
+            <a href="#" class="nav__link" data-name="product">Product
+              <svg class="nav__link-arrow">
+                <use href="images/icon-arrow.svg#arrow"></use>
+              </svg>
+            </a>
+            <ul class="nav__sublist" data-name="product">
+              <li class="nav__subitem"><a href="#">Overview</a></li>
+              <li class="nav__subitem"><a href="#">Pricing</a></li>
+              <li class="nav__subitem"><a href="#">Marketplace</a></li>
+              <li class="nav__subitem"><a href="#">Features</a></li>
+              <li class="nav__subitem"><a href="#">Integrations</a></li>
+            </ul>
+          </li>
+
+          <li class="nav__item">
+            <a href="#" class="nav__link" data-name="company">Company
+              <svg class="nav__link-arrow">
+                <use href="images/icon-arrow.svg#arrow"></use>
+              </svg>
+            </a>
+            <ul class="nav__sublist" data-name="company">
+              <li class="nav__subitem"><a href="#">About</a></li>
+              <li class="nav__subitem"><a href="#">Team</a></li>
+              <li class="nav__subitem"><a href="#">Blog</a></li>
+              <li class="nav__subitem"><a href="#">Careers</a></li>
+            </ul>
+          </li>
+
+          <li class="nav__item">
+            <a href="#" class="nav__link" data-name="connect">Connect
+              <svg class="nav__link-arrow">
+                <use href="images/icon-arrow.svg#arrow"></use>
+              </svg>
+            </a>
+            <ul class="nav__sublist" data-name="connect">
+              <li class="nav__subitem"><a href="#">Contact</a></li>
+              <li class="nav__subitem"><a href="#">Newsletter</a></li>
+              <li class="nav__subitem"><a href="#">LinkedIn</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="nav__btn-box">
+          <a href="#" class="nav__link nav__login">Login</a>
+          <button class="btn btn--primary nav__btn">Sign Up</button>
+        </div>
+      </nav>
+
+      <!-- <a href="#" class="nav__link nav__login">Login</a>
+      <button class="btn btn--primary nav__btn">Sign Up</button> -->
+
+      <button class="navbar__hamburger">
+        <div class="navbar__hamburger-style"></div>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ================================= -->
   <!-- HEADER -->
   <header class="header">
     <div class="container header__container">
 
       <img src="images/bg-pattern-intro.svg" alt="Background pattern" class="header__bg">
 
-      <div class="header__navbar">
+      <!-- <div class="header__navbar">
         <img src="images/logo.svg" alt="Blogr logo" class="header__logo">
 
         <nav class="nav">
@@ -63,9 +132,13 @@
           </ul>
         </nav>
 
-        <a href="#" class="nav__link">Login</a>
-        <button href="#" class="btn btn--primary">Sign Up</button>
-      </div>
+        <a href="#" class="nav__link nav__login">Login</a>
+        <button class="btn btn--primary nav__btn">Sign Up</button>
+
+        <button class="header__hamburger">
+          <img src="images/icon-hamburger.svg" alt="Menu button">
+        </button>
+      </div> -->
 
       <div class="header__content">
         <h1 class="header__title">A modern publishing platform</h1>
@@ -82,9 +155,13 @@
     <!-- ================================= -->
     <!-- FUTURE SECTION -->
     <section class="future">
-      <img class="future__bg" src="images/illustration-editor-desktop.svg" alt="Editor illustration">
+      <div class="container future__container">
+        <picture class="future__bg">
+          <source media="(max-width: 44em)" srcset="images/illustration-editor-mobile.svg">
+          <img src="images/illustration-editor-desktop.svg" alt="Editor illustration">
+        </picture>
 
-      <div class="container">
+
         <h2 class="future__title">Designed for the future</h2>
 
         <div class="card future__card">
@@ -111,11 +188,12 @@
     <!-- ================================= -->
     <!-- INFRASTRUCTURE SECTION -->
     <section class="infra">
-
       <div class="container infra__container">
+
         <div class="infra__photo-container">
           <img class="infra__phones" src="images/illustration-phones.svg" alt="Phones illustration">
         </div>
+
         <div class="card card--light infra__card">
           <h2 class="card__title card__title--light">State of the Art Infrastructure</h2>
           <p class="card__desc">
@@ -129,9 +207,13 @@
     <!-- ================================= -->
     <!-- SIMPLE SECTION -->
     <section class="simple">
-      <img class="simple__bg" src="images/illustration-laptop-desktop.svg" alt="Laptop illustration">
+      <div class="container simple__container">
 
-      <div class="container">
+        <picture class="simple__bg">
+          <source media="(max-width: 44em)" srcset="images/illustration-laptop-mobile.svg">
+          <img src="images/illustration-laptop-desktop.svg" alt="Laptop illustration">
+        </picture>
+
         <div class="card simple__card">
           <h3 class="card__title">Free, open, simple</h3>
           <p class="card__desc">

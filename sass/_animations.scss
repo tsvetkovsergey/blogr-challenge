@@ -26,6 +26,42 @@
   }
 
   to {
+    opacity: 0;
     visibility: hidden;
+  }
+}
+
+@keyframes slide-up-title {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up-desc {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: var(--text-opacity);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    // transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -2,9 +2,15 @@
   background-color: var(--color-black);
   padding: 7rem 0 4rem 0;
   font-size: 1.5rem;
+  border-top-right-radius: var(--border-radius);
 
   &__logo {
     grid-column: center-start / span 1;
+
+    @media only screen and (max-width: $bp-phone-land) {
+      justify-self: center;
+      margin: 0.5rem 0 5.5rem 0;
+    }
   }
 
   &__list {
@@ -16,11 +22,29 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media only screen and (max-width: $bp-phone-land) {
+      grid-column: center-start / center-end;
+      align-items: center;
+      margin-top: 2rem;
+    }
   }
 
   &__listname {
     margin-top: 0.5rem;
     margin-bottom: 3.4rem;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+
+    @media only screen and (max-width: $bp-tab-port) {
+      font-size: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    // @media only screen and (max-width: $bp-phone-land) {
+    //   font-size: 1.8rem;
+    //   margin-bottom: 2.8rem;
+    // }
   }
 
   &__link {
@@ -31,6 +55,15 @@
 
     // To increase clickable area
     padding: 0.5rem 0;
+
+    @media only screen and (max-width: $bp-tab-port) {
+      font-size: 1.8rem;
+    }
+
+    @media only screen and (max-width: $bp-phone-land) {
+      opacity: 1;
+      margin-bottom: 0.2rem;
+    }
 
     @extend %line-effect;
     &::after {

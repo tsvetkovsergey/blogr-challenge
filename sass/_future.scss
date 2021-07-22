@@ -9,11 +9,17 @@
     padding: 10rem 0 15vw 0;
   }
 
+  @include jus-center;
+
   &__title {
     grid-column: center-start / center-end;
     text-align: center;
     color: var(--color-secondary);
     margin-bottom: 10rem;
+
+    @media only screen and (max-width: $bp-phone-land) {
+      grid-row: 1 / 2;
+    }
   }
 
   &__card {
@@ -22,6 +28,19 @@
 
     &:not(:last-child) {
       margin-bottom: 7rem;
+
+      @media only screen and (max-width: $bp-phone-land) {
+        margin-bottom: 4rem;
+      }
+    }
+
+    @media only screen and (max-width: $bp-phone-land) {
+      grid-column: center-start / center-end;
+      margin-right: 0;
+
+      &:first-of-type {
+        margin-top: 8rem;
+      }
     }
   }
 
@@ -32,8 +51,22 @@
     transform: translate(8%, -50%);
     z-index: -1;
 
-    @media only screen and (max-width: $bp-tab-port) {
-      width: 80%;
+    & > * {
+      @media only screen and (max-width: $bp-tab-port) {
+        width: 80vw;
+      }
+
+      @media only screen and (max-width: $bp-phone-land) {
+        width: #{"min(80vw, 40rem)"};
+      }
+    }
+
+    @media only screen and (max-width: $bp-phone-land) {
+      width: auto;
+      grid-column: center-start / center-end;
+      justify-self: center;
+      position: static;
+      transform: translate(0, 0) scale(135%);
     }
   }
 }
