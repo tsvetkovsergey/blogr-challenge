@@ -98,7 +98,8 @@ button {
   font-weight: 500;
   position: relative;
   border: none;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
 
 button {
   font-size: 1.6rem; }
@@ -114,8 +115,9 @@ button {
   transform: scaleX(0);
   transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1); }
 
-.footer__link:hover::after, .widescreen__link:hover::after {
-  transform: scaleX(1); }
+@media (hover: hover) {
+  .footer__link:hover::after, .widescreen__link:hover::after {
+    transform: scaleX(1); } }
 
 .btn {
   width: 13.6rem;
@@ -125,24 +127,31 @@ button {
   position: relative;
   overflow: hidden;
   z-index: 1; }
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.2); }
   .btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); }
-  @media only screen and (max-width: 44em) {
+    transform: translateY(2px);
+    filter: brightness(0.9); }
+  @media (hover: hover) {
     .btn:hover {
-      transform: none;
-      box-shadow: none; }
+      transform: translateY(-3px);
+      box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.2); }
+    .btn:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); } }
+
+@media only screen and (max-width: 44em) and (hover: hover) {
+  .btn:hover {
+    transform: none;
+    box-shadow: none; } }
+  @media only screen and (max-width: 44em) {
     .btn:active {
       transform: translateY(2px);
       box-shadow: none; } }
   .btn--primary {
     color: var(--color-primary);
     text-align: center; }
-    .btn--primary:hover {
-      color: var(--color-white); }
+    @media (hover: hover) {
+      .btn--primary:hover {
+        color: var(--color-white); } }
     .btn--primary::before {
       content: "";
       display: block;
@@ -167,14 +176,16 @@ button {
       transform: translateX(-100%);
       transform-origin: left;
       z-index: -1; }
-    .btn--primary:hover::after {
-      transform: translateX(0); }
+    @media (hover: hover) {
+      .btn--primary:hover::after {
+        transform: translateX(0); } }
   .btn--secondary {
     background-color: transparent;
     border: 1px solid var(--color-white);
     color: var(--color-white); }
-    .btn--secondary:hover {
-      color: var(--color-primary-light); }
+    @media (hover: hover) {
+      .btn--secondary:hover {
+        color: var(--color-primary-light); } }
     .btn--secondary::after {
       content: "";
       position: absolute;
@@ -187,8 +198,9 @@ button {
       box-shadow: inset 0 0 0 0 var(--color-white);
       transition: all 0.2s ease-in;
       transform: translate(-50%, -50%); }
-    .btn--secondary:hover::after {
-      box-shadow: inset 0 0 0 10rem var(--color-white); }
+    @media (hover: hover) {
+      .btn--secondary:hover::after {
+        box-shadow: inset 0 0 0 10rem var(--color-white); } }
 
 @media only screen and (max-width: 44em) {
   .card {
@@ -268,6 +280,8 @@ button {
     margin-bottom: 1.6rem;
     opacity: var(--text-opacity);
     padding: 0.5rem 0; }
+    .footer__link:active {
+      transform: translateY(1px); }
     @media only screen and (max-width: 60em) {
       .footer__link {
         font-size: 1.8rem; } }
@@ -607,6 +621,7 @@ button {
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 2.3;
+    display: inline-block;
     padding: 0.5rem 0; }
     @media only screen and (max-width: 44em) {
       .nav__subitem a:link,
@@ -616,8 +631,11 @@ button {
         opacity: var(--text-opacity);
         font-weight: 400;
         line-height: 2.5; } }
-  .nav__subitem a:hover {
-    font-weight: 500; }
+  .nav__subitem a:active {
+    transform: translateY(1px); }
+  @media (hover: hover) {
+    .nav__subitem a:hover {
+      font-weight: 500; } }
   @media only screen and (max-width: 44em) {
     .nav__btn-box {
       margin-top: 3.2rem;
@@ -625,6 +643,8 @@ button {
       text-align: center; } }
   .nav__login {
     display: inline-block; }
+    .nav__login:active {
+      transform: translateY(1px); }
     @media only screen and (max-width: 44em) {
       .nav__login {
         line-height: 1;
@@ -646,12 +666,17 @@ button {
 .widescreen__link::after {
   bottom: 0.5rem; }
 
-.widescreen__link:hover {
-  opacity: 1;
-  transform: translateY(-2px); }
+.widescreen__link:active {
+  transform: translateY(1px);
+  opacity: 1; }
 
-.widescreen__link:hover > .nav__link-arrow {
-  transform: scaleY(-1); }
+@media (hover: hover) {
+  .widescreen__link:hover {
+    opacity: 1;
+    transform: translateY(-2px); }
+  .widescreen__link:active {
+    transform: translateY(-1px);
+    color: rgba(255, 255, 255, 0.9); } }
 
 .simple {
   margin: 30rem 0;

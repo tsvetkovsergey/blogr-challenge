@@ -56,6 +56,10 @@
     // To increase clickable area
     padding: 0.5rem 0;
 
+    &:active {
+      transform: translateY(1px);
+    }
+
     @media only screen and (max-width: $bp-tab-port) {
       font-size: 1.8rem;
     }

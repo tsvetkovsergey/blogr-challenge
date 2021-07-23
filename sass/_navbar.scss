@@ -213,6 +213,7 @@
       font-weight: 400;
       font-size: 1.4rem;
       line-height: 2.3;
+      display: inline-block;
 
       // To increase clickable area
       padding: 0.5rem 0;
@@ -226,8 +227,14 @@
       }
     }
 
-    a:hover {
-      font-weight: 500;
+    a:active {
+      transform: translateY(1px);
+    }
+
+    @media (hover: hover) {
+      a:hover {
+        font-weight: 500;
+      }
     }
   }
 
@@ -241,6 +248,10 @@
 
   &__login {
     display: inline-block;
+
+    &:active {
+      transform: translateY(1px);
+    }
 
     @media only screen and (max-width: $bp-phone-land) {
       line-height: 1;
@@ -283,12 +294,24 @@
     bottom: 0.5rem;
   }
 
-  &:hover {
+  &:active {
+    transform: translateY(1px);
     opacity: 1;
-    transform: translateY(-2px);
   }
 
-  &:hover > .nav__link-arrow {
-    transform: scaleY(-1);
+  @media (hover: hover) {
+    &:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    // &:hover > .nav__link-arrow {
+    //   transform: scaleY(-1);
+    // }
+
+    &:active {
+      transform: translateY(-1px);
+      color: hsla(0, 0%, 100%, 0.9);
+    }
   }
 }

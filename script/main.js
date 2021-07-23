@@ -30,12 +30,14 @@ const setNavLinksStyle = function () {
   if (mql.matches) {
     links.forEach((link) => {
       link.classList.remove("widescreen__link");
+      link.classList.remove("active-link");
     });
     return;
   }
 
   links.forEach((link) => {
     link.classList.add("widescreen__link");
+    link.classList.remove("active-link");
   });
 };
 setNavLinksStyle();
@@ -43,7 +45,6 @@ setNavLinksStyle();
 // Listen for screen width change
 mql.addEventListener("change", function (e) {
   setImages();
-
   setNavLinksStyle();
 
   // Switch to widescreen view
@@ -55,6 +56,7 @@ mql.addEventListener("change", function (e) {
 
     subListsArr.forEach((list) => {
       list.style.visibility = "hidden";
+      list.style.maxHeight = "none";
     });
     openedSublist = -1;
   }
@@ -66,19 +68,23 @@ mql.addEventListener("change", function (e) {
     // console.log("mob: " + openedSublist);
     subListsArr.forEach((list) => {
       list.style.animation = null;
-      list.style.maxHeight = null;
-      list.style.visibility = "visible";
+      // list.style.transitionDuration = "0s";
+      list.style.maxHeight = "0";
+      // list.style.visibility = "visible";
     });
   }
 });
 
 // Utility functions
+const getLink = function (sublist) {
+  return sublist.closest(".nav__item").querySelector(".nav__link");
+};
 const showSubList = function (sublist) {
+  const link = getLink(sublist);
+  link.classList.add("active-link");
   if (mql.matches) {
+    sublist.style.visibility = "visible";
     sublist.style.maxHeight = `${sublist.scrollHeight}px`;
-
-    const link = sublist.closest(".nav__item").querySelector(".nav__link");
-    link.classList.add("active-link");
     return;
   }
 
@@ -88,11 +94,10 @@ const showSubList = function (sublist) {
 };
 
 const hideSublist = function (sublist) {
+  const link = getLink(sublist);
+  link.classList.remove("active-link");
   if (mql.matches) {
     sublist.style.maxHeight = null;
-
-    const link = sublist.closest(".nav__item").querySelector(".nav__link");
-    link.classList.remove("active-link");
     return;
   }
 
