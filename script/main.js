@@ -4,6 +4,10 @@ const subListsArr = Array.from(nav.querySelectorAll(".nav__sublist"));
 const hambox = document.querySelector(".navbar__hamburger");
 const hamburger = hambox.querySelector(".navbar__hamburger-style");
 
+// Section images
+const future_img = document.querySelector(".future__bg > img");
+const simple_img = document.querySelector(".simple__bg > img");
+
 const mediaQuery = "only screen and (max-width: 44em)";
 let mql = window.matchMedia(mediaQuery);
 
@@ -11,6 +15,16 @@ let mql = window.matchMedia(mediaQuery);
 let openedSublist = -1;
 // Tracks opened mobile menu
 let mobMenuOpened = false;
+
+const setImages = function () {
+  future_img.src = mql.matches
+    ? "../images/illustration-editor-mobile.svg"
+    : "../images/illustration-editor-desktop.svg";
+  simple_img.src = mql.matches
+    ? "../images/illustration-laptop-mobile.svg"
+    : "../images/illustration-laptop-desktop.svg";
+};
+setImages();
 
 const setNavLinksStyle = function () {
   if (mql.matches) {
@@ -28,10 +42,7 @@ setNavLinksStyle();
 
 // Listen for screen width change
 mql.addEventListener("change", function (e) {
-  // Remove focus from any element
-  // console.dir(document.activeElement);
-  // nav.click();
-  // nav.focus();
+  setImages();
 
   setNavLinksStyle();
 

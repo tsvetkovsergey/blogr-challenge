@@ -57,7 +57,9 @@
       }
 
       @media only screen and (max-width: $bp-phone-land) {
-        width: #{"min(80vw, 40rem)"};
+        width: calc(min(80vw, 40rem));
+        // max-width: 40rem;
+        // width: 80vw;
       }
     }
 
@@ -66,7 +68,7 @@
       grid-column: center-start / center-end;
       justify-self: center;
       position: static;
-      transform: translate(0, 0) scale(135%);
+      transform: translate(0, 0) scale(1.35);
     }
   }
 }

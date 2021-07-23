@@ -38,9 +38,10 @@
       @media only screen and (max-width: $bp-phone-land) {
         position: relative;
         top: 0;
-        transform: translate(-50%, 0) scale(155%);
+        transform: translate(-50%, 0) scale(1.55);
         display: block;
-        width: #{"min(100%, 40rem)"};
+        // width: #{"min(100%, 40rem)"};
+        width: calc(min(100%, 40rem));
       }
     }
   }
