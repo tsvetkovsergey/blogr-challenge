@@ -228,11 +228,20 @@
     }
 
     a:active {
-      transform: translateY(1px);
+      transform: translateY(2px);
+    }
+
+    @media (hover: none) {
+      a:active {
+        font-weight: 600;
+      }
     }
 
     @media (hover: hover) {
       a:hover {
+        font-weight: 500;
+      }
+      a:active {
         font-weight: 500;
       }
     }
