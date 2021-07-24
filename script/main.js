@@ -17,27 +17,16 @@ let openedSublist = -1;
 let mobMenuOpened = false;
 
 const setImages = function () {
-  future_img.src = mql.matches
-    ? "../images/illustration-editor-mobile.svg"
-    : "../images/illustration-editor-desktop.svg";
-  simple_img.src = mql.matches
-    ? "../images/illustration-laptop-mobile.svg"
-    : "../images/illustration-laptop-desktop.svg";
+  const str = mql.matches ? "mobile" : "desktop";
+  future_img.src = `../images/illustration-editor-${str}.svg`;
+  simple_img.src = `../images/illustration-laptop-${str}.svg`;
 };
 setImages();
 
 const setNavLinksStyle = function () {
-  if (mql.matches) {
-    links.forEach((link) => {
-      link.classList.remove("widescreen__link");
-      link.classList.remove("active-link");
-    });
-    return;
-  }
-
   links.forEach((link) => {
-    link.classList.add("widescreen__link");
     link.classList.remove("active-link");
+    link.classList[mql.matches ? "remove" : "add"]("widescreen__link");
   });
 };
 setNavLinksStyle();
@@ -64,13 +53,9 @@ mql.addEventListener("change", function (e) {
   // Switch to mobile view
   if (mql.matches) {
     nav.style.visibility = "hidden";
-    // if (openedSublist !== -1) hideSublist(subListsArr[openedSublist]);
-    // console.log("mob: " + openedSublist);
     subListsArr.forEach((list) => {
       list.style.animation = null;
-      // list.style.transitionDuration = "0s";
       list.style.maxHeight = "0";
-      // list.style.visibility = "visible";
     });
   }
 });
@@ -79,6 +64,7 @@ mql.addEventListener("change", function (e) {
 const getLink = function (sublist) {
   return sublist.closest(".nav__item").querySelector(".nav__link");
 };
+
 const showSubList = function (sublist) {
   const link = getLink(sublist);
   link.classList.add("active-link");
@@ -121,6 +107,9 @@ const closeMobMenu = function () {
 };
 
 // Handlers
+// Enable :active states on Safari Mobile
+document.addEventListener("touchstart", function () {}, false);
+
 nav.addEventListener("click", function (e) {
   const link = e.target.closest(".nav__link");
   if (!link || link.classList.contains("nav__login")) return;
