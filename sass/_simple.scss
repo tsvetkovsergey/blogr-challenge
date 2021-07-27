@@ -21,7 +21,11 @@
   &__bg {
     @media only screen and (max-width: $bp-phone-land) {
       grid-column: center-start / center-end;
-      margin: 7rem 0 9rem 0;
+      // Other browsers
+      margin: 0.5rem 0 3rem 0;
+
+      // Safari
+      // margin: 0;
       width: 100%;
     }
 
@@ -37,11 +41,18 @@
 
       @media only screen and (max-width: $bp-phone-land) {
         position: relative;
-        top: 0;
-        transform: translate(-50%, 0) scale(1.55);
         display: block;
-        // width: #{"min(100%, 40rem)"};
-        width: calc(min(100%, 40rem));
+        top: 0;
+        // Other browsers
+        // transform: translate(-50%, 0) scale(1.55);
+        // width: calc(min(100%, 40rem));
+
+        // For Safari
+        // transform: translate(-50%, 0) scale(0.775);
+        // width: calc(min(100%, 40rem) * 2);
+
+        transform: translate(-50%, 0);
+        width: calc(min(155%, 62rem));
       }
     }
   }
@@ -55,8 +66,12 @@
 
     @media only screen and (max-width: $bp-phone-land) {
       grid-column: center-start / center-end;
-      padding: 0 0.7rem;
-      margin-bottom: 4rem;
+      padding: 0 0.5rem;
+
+      &:not(:last-child),
+      &:last-child {
+        margin-bottom: 4rem;
+      }
     }
   }
 }

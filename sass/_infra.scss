@@ -23,7 +23,6 @@
 
   @media only screen and (max-width: $bp-phone-land) {
     height: auto;
-    // margin-top: #{"min(55%, 25rem)"};
     margin-top: calc(min(55%, 25rem));
     background-position: top -25rem left 50%;
     background-size: cover;
@@ -46,6 +45,7 @@
       // margin-top: -7rem;
       margin-top: calc(-12rem + 10vw);
       margin-bottom: 11rem;
+      padding: 0;
 
       & .card__title {
         font-size: 3.8rem;
