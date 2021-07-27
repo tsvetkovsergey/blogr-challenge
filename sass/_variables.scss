@@ -3,6 +3,7 @@
   --color-primary: hsl(356, 100%, 66%);
   --color-primary-light: hsl(355, 100%, 74%);
   --color-secondary: hsl(208, 49%, 24%);
+  --color-secondary-t: hsl(208, 49%, 24%, var(--text-opacity));
 
   // Neutral colors
   --color-white: hsl(0, 0%, 100%);

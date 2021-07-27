@@ -4,6 +4,7 @@
   --color-primary: hsl(356, 100%, 66%);
   --color-primary-light: hsl(355, 100%, 74%);
   --color-secondary: hsl(208, 49%, 24%);
+  --color-secondary-t: hsl(208, 49%, 24%, var(--text-opacity));
   --color-white: hsl(0, 0%, 100%);
   --color-grey-light: hsl(240, 2%, 93%);
   --color-grey: hsl(240, 2%, 79%);
@@ -486,6 +487,7 @@ button {
   .navbar__hamburger {
     display: none;
     padding: 2rem 1rem;
+    margin-right: -1rem;
     background-color: transparent; }
     @media only screen and (max-width: 44em) {
       .navbar__hamburger {
@@ -562,7 +564,7 @@ button {
     margin-right: 3.2rem;
     color: var(--color-white);
     opacity: var(--text-opacity);
-    transition: opacity 0.3s;
+    transition: color 0.3s, opacity 0.3s;
     display: block;
     padding: 0.5rem 0; }
     @media only screen and (max-width: 44em) {
@@ -575,17 +577,22 @@ button {
         text-align: center;
         line-height: 0; } }
   .nav__link-arrow {
+    display: inline-block;
+    position: relative;
+    top: -0.1rem;
     width: 1rem;
-    height: 1rem;
+    height: 0.7rem;
     margin-left: 4px;
-    margin-bottom: 0.2rem;
     transition: transform 0.2s;
     stroke: #fff;
-    opacity: 0.75; }
+    opacity: 0.75;
+    background-image: url("../images/icon-arrow-light.svg");
+    background-repeat: no-repeat;
+    transform-origin: center; }
     @media only screen and (max-width: 44em) {
       .nav__link-arrow {
         stroke: var(--color-primary-light);
-        margin-bottom: 0.1rem;
+        background-image: url("../images/icon-arrow-dark.svg");
         opacity: 1; } }
   .nav__sublist {
     visibility: hidden;
@@ -664,25 +671,29 @@ button {
       .nav__btn::after, .nav__btn::before {
         display: none; } }
 
-.active-link {
-  opacity: var(--text-opacity); }
-  .active-link > .nav__link-arrow {
-    transform: scaleY(-1); }
+@media only screen and (max-width: 44em) {
+  .active-link {
+    color: var(--color-secondary-t); } }
+
+.active-link > .nav__link-arrow {
+  transform: scaleY(-1); }
 
 .widescreen__link::after {
   bottom: 0.5rem; }
 
 .widescreen__link:active {
-  transform: translateY(1px);
-  opacity: 1; }
+  transform: translateY(1px); }
 
 @media (hover: hover) {
   .widescreen__link:hover {
     opacity: 1;
     transform: translateY(-2px); }
+  .widescreen__link:hover > .nav__link-arrow {
+    opacity: 1; }
   .widescreen__link:active {
     transform: translateY(-1px);
-    color: rgba(255, 255, 255, 0.9); } }
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 1; } }
 
 .simple {
   margin: 30rem 0;
