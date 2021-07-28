@@ -51,6 +51,9 @@
     transform: translate(8%, -50%);
     z-index: -1;
 
+    opacity: 0;
+    // animation: fade-in-future 1s forwards;
+
     & > * {
       @media only screen and (max-width: $bp-tab-port) {
         width: 80vw;
@@ -58,8 +61,6 @@
 
       @media only screen and (max-width: $bp-phone-land) {
         width: calc(min(80vw, 40rem));
-        // max-width: 40rem;
-        // width: 80vw;
       }
     }
 
@@ -68,7 +69,7 @@
       grid-column: center-start / center-end;
       justify-self: center;
       position: static;
-      transform: translate(0, 0) scale(1.35);
+      transform: scale(1.35);
     }
   }
 }

@@ -4,6 +4,8 @@ const subListsArr = Array.from(nav.querySelectorAll(".nav__sublist"));
 const hambox = document.querySelector(".navbar__hamburger");
 const hamburger = hambox.querySelector(".navbar__hamburger-style");
 
+const sections = document.querySelectorAll("section");
+
 // Section images
 const future_img = document.querySelector(".future__bg > img");
 const simple_img = document.querySelector(".simple__bg > img");
@@ -169,4 +171,49 @@ hambox.addEventListener("click", function (e) {
   }
 
   openMobMenu();
+});
+
+//////////////////////////////////////////
+// INTERSECTION OBSERVER
+const sectionFuture = document.querySelector(".future");
+
+const obsCallback = function (entries, observer) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    // console.log(entry);
+
+    const section = entry.target;
+
+    // Section Future
+    if (section.classList.contains("future")) {
+      const img = section.querySelector(".future__bg");
+      img.style.animation = "fade-in-future 1s forwards";
+    }
+
+    // Section Infra
+    if (section.classList.contains("infra")) {
+      const img = section.querySelector(".infra__phones");
+      img.style.animation = "fade-in-infra 1s forwards";
+    }
+
+    // Section Simple
+    if (section.classList.contains("simple")) {
+      simple_img.style.animation = "fade-in-simple 1s forwards";
+    }
+
+    observer.unobserve(section);
+  });
+};
+
+const obsOptions = {
+  // null means viewport in this case
+  root: null,
+  // How much of the element should be visible
+  // to trigger event
+  threshold: 0.2,
+};
+
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+sections.forEach((section) => {
+  observer.observe(section);
 });

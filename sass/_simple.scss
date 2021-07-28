@@ -34,6 +34,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-102%, -50%);
+      opacity: 0;
 
       @media only screen and (max-width: $bp-tab-port) {
         width: 80%;
@@ -43,13 +44,6 @@
         position: relative;
         display: block;
         top: 0;
-        // Other browsers
-        // transform: translate(-50%, 0) scale(1.55);
-        // width: calc(min(100%, 40rem));
-
-        // For Safari
-        // transform: translate(-50%, 0) scale(0.775);
-        // width: calc(min(100%, 40rem) * 2);
 
         transform: translate(-50%, 0);
         width: calc(min(155%, 62rem));
