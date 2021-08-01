@@ -7,7 +7,9 @@ const hamburger = hambox.querySelector(".navbar__hamburger-style");
 const sections = document.querySelectorAll("section");
 
 // Section images
+const futureBg = document.querySelector(".future__bg");
 const future_img = document.querySelector(".future__bg > img");
+const infraBg = document.querySelector(".infra__phones");
 const simple_img = document.querySelector(".simple__bg > img");
 
 const mediaQuery = "only screen and (max-width: 44em)";
@@ -175,33 +177,31 @@ hambox.addEventListener("click", function (e) {
 
 //////////////////////////////////////////
 // INTERSECTION OBSERVER
-const sectionFuture = document.querySelector(".future");
-
 const obsCallback = function (entries, observer) {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
     // console.log(entry);
 
-    const section = entry.target;
+    const bg = entry.target;
+
+    let name = "";
+    // const inout = entry.isIntersecting ? "in" : "out";
+    // const opt = `${inout === "in" ? "1s" : ".2s"} forwards`;
+    const opt = `1.5s forwards`;
 
     // Section Future
-    if (section.classList.contains("future")) {
-      const img = section.querySelector(".future__bg");
-      img.style.animation = "fade-in-future 1s forwards";
-    }
+    if (bg === futureBg) name = "future";
 
     // Section Infra
-    if (section.classList.contains("infra")) {
-      const img = section.querySelector(".infra__phones");
-      img.style.animation = "fade-in-infra 1s forwards";
-    }
+    if (bg === infraBg) name = "infra";
 
     // Section Simple
-    if (section.classList.contains("simple")) {
-      simple_img.style.animation = "fade-in-simple 1s forwards";
-    }
+    if (bg === simple_img) name = "simple";
 
-    observer.unobserve(section);
+    // bg.style.animation = `fade-${inout} ${opt}, slide-${inout}-${name} ${opt}`;
+    bg.style.animation = `fade-in ${opt}, slide-in-${name} ${opt}`;
+
+    observer.unobserve(bg);
   });
 };
 
@@ -210,10 +210,10 @@ const obsOptions = {
   root: null,
   // How much of the element should be visible
   // to trigger event
-  threshold: 0.2,
+  threshold: 0.25,
 };
 
 const observer = new IntersectionObserver(obsCallback, obsOptions);
-sections.forEach((section) => {
-  observer.observe(section);
+[futureBg, infraBg, simple_img].forEach((bg) => {
+  observer.observe(bg);
 });

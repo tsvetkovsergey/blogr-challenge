@@ -52,7 +52,6 @@
     z-index: -1;
 
     opacity: 0;
-    // animation: fade-in-future 1s forwards;
 
     & > * {
       @media only screen and (max-width: $bp-tab-port) {
