@@ -135,7 +135,7 @@
     margin-right: 3.2rem;
     color: var(--color-white);
     opacity: var(--text-opacity);
-    transition: color 0.3s, opacity 0.3s;
+    transition: color 0.3s, opacity 0.3s, transform 0.3s;
     display: block;
 
     // To increase clickable area
