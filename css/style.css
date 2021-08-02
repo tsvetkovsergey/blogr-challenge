@@ -429,9 +429,6 @@ button {
   border-bottom-left-radius: var(--border-radius);
   position: relative;
   overflow: hidden; }
-  @media only screen and (max-width: 44em) {
-    .header {
-      background-image: linear-gradient(to bottom, var(--color-gradient-red-light), var(--color-gradient-red)); } }
   .header__bg {
     position: absolute;
     top: 0;
@@ -445,14 +442,16 @@ button {
         top: 0;
         left: 0;
         transform: translate(-25%, -20%); } }
+  @media only screen and (max-width: 44em) {
+    .header {
+      background-image: linear-gradient(to bottom, var(--color-gradient-red-light), var(--color-gradient-red)); } }
   .header__container {
     height: 100%;
-    grid-template-rows: 1fr;
-    margin-top: 12rem; }
+    grid-template-rows: 1fr; }
   .header__content {
     grid-column: center-start / center-end;
     place-self: center;
-    margin-top: -4rem;
+    margin-top: 20rem;
     text-align: center;
     position: relative;
     z-index: 20; }
