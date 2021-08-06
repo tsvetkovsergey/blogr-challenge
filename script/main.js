@@ -12,6 +12,9 @@ const future_img = document.querySelector(".future__bg > img");
 const infraBg = document.querySelector(".infra__phones");
 const simple_img = document.querySelector(".simple__bg > img");
 
+// Titles
+const futureTitle = document.querySelector(".future__title");
+
 const mediaQuery = "only screen and (max-width: 44em)";
 let mql = window.matchMedia(mediaQuery);
 
@@ -313,18 +316,40 @@ ScrollTrigger.matchMedia({
   },
 });
 
-// gsap.fromTo(
-//   ".simple__bg > img",
-//   { x: "-27%", y: "-50%", autoAlpha: 0 },
-//   {
-//     scrollTrigger: {
-//       trigger: ".simple",
-//       start: "30% bottom",
-//       end: "70% top",
-//       toggleActions: "play reverse play reverse",
-//     },
-//     x: "+=15%",
-//     autoAlpha: 1,
-//     duration: 0.8,
-//   }
-// );
+//////////////////////////////////////////
+// TEXT ANIMATIONS
+
+const animateText = function (text) {
+  const strText = text.textContent;
+
+  // Split text
+  const splitText = strText.split("");
+
+  // Change simple text with letters each
+  // in individual <span>
+  text.textContent = "";
+  splitText.forEach((letter) => {
+    text.innerHTML += `<span>${letter}</span>`;
+  });
+
+  // Get individual chars
+  let char = 0;
+  const chars = text.querySelectorAll("span");
+
+  // Make animation happens
+  const timer = setInterval(function () {
+    const span = chars[char++];
+
+    if (span.textContent !== " ") {
+      span.style.display = "inline-block";
+      span.style.animation = "text-wave .5s";
+    }
+    if (char === strText.length) {
+      clearInterval(timer);
+    }
+  }, 30);
+};
+
+futureTitle.addEventListener("mouseenter", function () {
+  animateText(futureTitle);
+});
