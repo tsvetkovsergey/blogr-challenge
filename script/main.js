@@ -175,45 +175,156 @@ hambox.addEventListener("click", function (e) {
   openMobMenu();
 });
 
+// //////////////////////////////////////////
+// //INTERSECTION OBSERVER
+// const obsCallback = function (entries, observer) {
+//   entries.forEach((entry) => {
+//     if (!entry.isIntersecting) return;
+//     // console.log(entry);
+
+//     const bg = entry.target;
+
+//     let name = "";
+//     // const inout = entry.isIntersecting ? "in" : "out";
+//     // const opt = `${inout === "in" ? "1s" : ".2s"} forwards`;
+//     const opt = `1.5s forwards`;
+
+//     // Section Future
+//     if (bg === futureBg) name = "future";
+
+//     // Section Infra
+//     if (bg === infraBg) name = "infra";
+
+//     // Section Simple
+//     if (bg === simple_img) name = "simple";
+
+//     // bg.style.animation = `fade-${inout} ${opt}, slide-${inout}-${name} ${opt}`;
+//     bg.style.animation = `fade-in ${opt}, slide-in-${name} ${opt}`;
+
+//     observer.unobserve(bg);
+//   });
+// };
+
+// const obsOptions = {
+//   // null means viewport in this case
+//   root: null,
+//   // How much of the element should be visible
+//   // to trigger event
+//   threshold: 0.25,
+// };
+
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+// [futureBg, infraBg, simple_img].forEach((bg) => {
+//   observer.observe(bg);
+// });
+
 //////////////////////////////////////////
-// INTERSECTION OBSERVER
-const obsCallback = function (entries, observer) {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    // console.log(entry);
+// GSAP ANIMATIONS
+gsap.registerPlugin(ScrollTrigger);
 
-    const bg = entry.target;
+// const em = document.querySelector("#em-size").offsetHeight;
 
-    let name = "";
-    // const inout = entry.isIntersecting ? "in" : "out";
-    // const opt = `${inout === "in" ? "1s" : ".2s"} forwards`;
-    const opt = `1.5s forwards`;
-
-    // Section Future
-    if (bg === futureBg) name = "future";
-
-    // Section Infra
-    if (bg === infraBg) name = "infra";
-
-    // Section Simple
-    if (bg === simple_img) name = "simple";
-
-    // bg.style.animation = `fade-${inout} ${opt}, slide-${inout}-${name} ${opt}`;
-    bg.style.animation = `fade-in ${opt}, slide-in-${name} ${opt}`;
-
-    observer.unobserve(bg);
-  });
-};
-
-const obsOptions = {
-  // null means viewport in this case
-  root: null,
-  // How much of the element should be visible
-  // to trigger event
-  threshold: 0.25,
-};
-
-const observer = new IntersectionObserver(obsCallback, obsOptions);
-[futureBg, infraBg, simple_img].forEach((bg) => {
-  observer.observe(bg);
+gsap.to(".header__bg", {
+  scrollTrigger: {
+    trigger: "header",
+    scrub: 0.4,
+    start: "top top",
+  },
+  top: "-50%",
 });
+
+// ScrollTrigger.saveStyles(".future__bg, .simple__bg > img");
+ScrollTrigger.saveStyles(".future__bg");
+
+ScrollTrigger.matchMedia({
+  "not all and (max-width: 44em)": function () {
+    gsap.fromTo(
+      ".future__bg",
+      {
+        x: "23%",
+        y: "-50%",
+        autoAlpha: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: ".future",
+          start: "30% bottom",
+          end: "70% top",
+          toggleActions: "play reverse play reverse",
+        },
+        x: "-=15%",
+        autoAlpha: 1,
+        duration: 0.8,
+      }
+    );
+  },
+
+  "(max-width: 44em)": function () {
+    gsap.from(".future__bg", {
+      scrollTrigger: {
+        trigger: ".future__bg",
+        start: "20% bottom",
+        end: "80% top",
+        toggleActions: "play reverse play reverse",
+      },
+      x: "15%",
+      y: "0",
+      autoAlpha: 0,
+      duration: 0.8,
+    });
+  },
+});
+
+ScrollTrigger.matchMedia({
+  "not all and (max-width: 44em)": function () {
+    gsap.fromTo(
+      ".simple__bg > img",
+      { x: "-27%", y: "-50%", autoAlpha: 0 },
+      {
+        scrollTrigger: {
+          trigger: ".simple",
+          start: "30% bottom",
+          end: "70% top",
+          toggleActions: "play reverse play reverse",
+        },
+        x: "+=15%",
+        autoAlpha: 1,
+        duration: 0.8,
+      }
+    );
+  },
+
+  "(max-width: 44em)": function () {
+    gsap.fromTo(
+      ".simple__bg > img",
+      { x: "-65%", y: 0, autoAlpha: 0 },
+      {
+        scrollTrigger: {
+          trigger: ".simple__bg",
+          start: "20% bottom",
+          end: "80% top",
+          toggleActions: "play reverse play reverse",
+        },
+        x: "-50%",
+        autoAlpha: 1,
+        duration: 0.8,
+      }
+    );
+  },
+});
+
+// gsap.fromTo(
+//   ".simple__bg > img",
+//   { x: "-27%", y: "-50%", autoAlpha: 0 },
+//   {
+//     scrollTrigger: {
+//       trigger: ".simple",
+//       start: "30% bottom",
+//       end: "70% top",
+//       toggleActions: "play reverse play reverse",
+//     },
+//     x: "+=15%",
+//     autoAlpha: 1,
+//     duration: 0.8,
+//   }
+// );

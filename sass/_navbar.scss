@@ -91,6 +91,7 @@
 
   @media only screen and (max-width: $bp-phone-land) {
     visibility: hidden;
+    opacity: 0;
 
     display: block;
 
@@ -101,9 +102,14 @@
     padding: 2.4rem;
     padding-top: 2.8rem;
 
-    background-color: var(--color-white);
+    // background-color: var(--color-white);
     border-radius: 0.5rem;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.3);
+
+    background-color: hsla(0, 0%, 100%, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid hsla(0, 0%, 100%, 0.6);
+    // transition: background-color 0.4s;
 
     & a {
       font-family: "Overpass", sans-serif;
@@ -118,7 +124,8 @@
     @media only screen and (max-width: $bp-phone-land) {
       flex-direction: column;
       align-items: center;
-      border-bottom: 1px solid var(--color-grey-light);
+      // border-bottom: 1px solid var(--color-grey-light);
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.6);
       padding-top: 1.4rem;
     }
   }
@@ -217,7 +224,9 @@
       overflow: hidden;
 
       box-shadow: none;
-      background-color: var(--color-grey-light);
+      // background-color: var(--color-grey-light);
+      // background-color: hsla(240, 2%, 93%, 0.8);
+      background-color: hsla(0, 0%, 100%, 0.6);
 
       transition: max-height 0.4s;
     }

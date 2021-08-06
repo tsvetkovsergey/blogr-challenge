@@ -10,12 +10,18 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- GSAP -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
   <script defer src="script/main.js"></script>
 
   <title>Frontend Mentor | [Blogr]</title>
 </head>
 
 <body>
+  <!-- Test em size -->
+  <div id="em-size">&nbsp;</div>
+
   <!-- ================================= -->
   <!-- NAVBAR -->
   <div class="container navbar__container">
@@ -85,54 +91,6 @@
     <div class="container header__container">
 
       <img src="images/bg-pattern-intro.svg" alt="Background pattern" class="header__bg">
-
-      <!-- <div class="header__navbar">
-        <img src="images/logo.svg" alt="Blogr logo" class="header__logo">
-
-        <nav class="nav">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#" class="nav__link" data-name="product">Product <img src="images/icon-arrow-light.svg"
-                  class="nav__link-arrow" alt="Menu arrow"></a>
-              <ul class="nav__sublist" data-name="product">
-                <li class="nav__subitem"><a href="#">Overview</a></li>
-                <li class="nav__subitem"><a href="#">Pricing</a></li>
-                <li class="nav__subitem"><a href="#">Marketplace</a></li>
-                <li class="nav__subitem"><a href="#">Features</a></li>
-                <li class="nav__subitem"><a href="#">Integrations</a></li>
-              </ul>
-            </li>
-
-            <li class="nav__item">
-              <a href="#" class="nav__link" data-name="company">Company <img src="images/icon-arrow-light.svg"
-                  class="nav__link-arrow" alt="Menu arrow"></a>
-              <ul class="nav__sublist" data-name="company">
-                <li class="nav__subitem"><a href="#">About</a></li>
-                <li class="nav__subitem"><a href="#">Team</a></li>
-                <li class="nav__subitem"><a href="#">Blog</a></li>
-                <li class="nav__subitem"><a href="#">Careers</a></li>
-              </ul>
-            </li>
-
-            <li class="nav__item">
-              <a href="#" class="nav__link" data-name="connect">Connect <img src="images/icon-arrow-light.svg"
-                  class="nav__link-arrow" alt="Menu arrow"></a>
-              <ul class="nav__sublist" data-name="connect">
-                <li class="nav__subitem"><a href="#">Contact</a></li>
-                <li class="nav__subitem"><a href="#">Newsletter</a></li>
-                <li class="nav__subitem"><a href="#">LinkedIn</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-
-        <a href="#" class="nav__link nav__login">Login</a>
-        <button class="btn btn--primary nav__btn">Sign Up</button>
-
-        <button class="header__hamburger">
-          <img src="images/icon-hamburger.svg" alt="Menu button">
-        </button>
-      </div> -->
 
       <div class="header__content">
         <h1 class="header__title">A modern publishing platform</h1>

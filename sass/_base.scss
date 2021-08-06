@@ -25,3 +25,10 @@ body {
 .hidden {
   display: none;
 }
+
+#em-size {
+  width: 0;
+  height: 1em;
+  position: absolute;
+  visibility: hidden;
+}
