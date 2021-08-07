@@ -18,6 +18,17 @@ const futureTitle = document.querySelector(".future__title");
 const mediaQuery = "only screen and (max-width: 44em)";
 let mql = window.matchMedia(mediaQuery);
 
+// CSS Variables
+const colorPrimary = getComputedStyle(document.body).getPropertyValue(
+  "--color-primary"
+);
+const colorMix66 = getComputedStyle(document.body).getPropertyValue(
+  "--color-prim-sec-66"
+);
+const colorMix33 = getComputedStyle(document.body).getPropertyValue(
+  "--color-prim-sec-33"
+);
+
 // Tracks opened submenu index
 let openedSublist = -1;
 // Tracks opened mobile menu
@@ -319,7 +330,7 @@ ScrollTrigger.matchMedia({
 //////////////////////////////////////////
 // TEXT ANIMATIONS
 
-const animateText = function (text) {
+const createChars = function (text) {
   const strText = text.textContent;
 
   // Split text
@@ -329,27 +340,77 @@ const animateText = function (text) {
   // in individual <span>
   text.textContent = "";
   splitText.forEach((letter) => {
-    text.innerHTML += `<span>${letter}</span>`;
+    if (letter !== " ") {
+      text.innerHTML += `<span class="wow_chars">${letter}</span>`;
+    } else {
+      text.innerHTML += `<span class="wow_chars">&nbsp;</span>`;
+    }
   });
 
   // Get individual chars
-  let char = 0;
-  const chars = text.querySelectorAll("span");
-
-  // Make animation happens
-  const timer = setInterval(function () {
-    const span = chars[char++];
-
-    if (span.textContent !== " ") {
-      span.style.display = "inline-block";
-      span.style.animation = "text-wave .5s";
-    }
-    if (char === strText.length) {
-      clearInterval(timer);
-    }
-  }, 30);
+  // let char = 0;
+  return Array.from(text.querySelectorAll("span"));
 };
 
-futureTitle.addEventListener("mouseenter", function () {
-  animateText(futureTitle);
+// const animateText = function (text) {
+//   // Make animation happens
+//   const timer = setInterval(function () {
+//     const span = chars[char++];
+
+//     if (span.textContent !== " ") {
+//       span.style.display = "inline-block";
+//       span.style.animation = "text-wave .5s";
+//     }
+//     if (char === strText.length) {
+//       clearInterval(timer);
+//     }
+//   }, 30);
+// };
+
+// futureTitle.addEventListener("mouseenter", function () {
+//   animateText(futureTitle);
+// });
+
+const futureChars = createChars(futureTitle);
+
+futureTitle.addEventListener("mouseover", function (e) {
+  if (e.target.tagName !== "SPAN") return;
+
+  const char = e.target;
+  const index = futureChars.findIndex((c) => c === char);
+
+  char.style.transform = "scale(1.7)";
+  char.style.marginLeft = "0.7rem";
+  char.style.marginRight = "0.7rem";
+  char.style.color = colorPrimary;
+
+  const index2 = [];
+  if (index - 1 >= 0) index2.push(futureChars[index - 1]);
+  if (index + 1 < futureChars.length) index2.push(futureChars[index + 1]);
+
+  index2.forEach((char2) => {
+    char2.style.transform = "scale(1.4)";
+    char2.style.marginLeft = "0.4rem";
+    char2.style.marginRight = "0.4rem";
+    char2.style.color = colorMix66;
+  });
+
+  const index3 = [];
+  if (index - 2 >= 0) index3.push(futureChars[index - 2]);
+  if (index + 2 < futureChars.length) index3.push(futureChars[index + 2]);
+
+  index3.forEach((char3) => {
+    char3.style.transform = "scale(1.2)";
+    char3.style.marginLeft = "0.3rem";
+    char3.style.marginRight = "0.3rem";
+    char3.style.color = colorMix33;
+  });
+});
+
+futureTitle.addEventListener("mouseout", function (e) {
+  if (e.target.tagName !== "SPAN") return;
+
+  futureChars.forEach((char) => {
+    char.removeAttribute("style");
+  });
 });

@@ -75,80 +75,6 @@
   }
 }
 
-@keyframes slide-in-future {
-  from {
-    transform: translate(18%, -50%);
-  }
-}
-
-@keyframes slide-out-future {
-  to {
-    transform: translate(18%, -50%);
-  }
-}
-
-@keyframes slide-in-infra {
-  from {
-    transform: translate(-18%, -46%);
-  }
-}
-
-@keyframes slide-out-infra {
-  to {
-    transform: translate(-18%, -46%);
-  }
-}
-
-@keyframes slide-in-simple {
-  from {
-    transform: translate(-112%, -50%);
-  }
-}
-
-@keyframes slide-out-simple {
-  to {
-    transform: translate(-112%, -50%);
-  }
-}
-
-@media only screen and (max-width: $bp-phone-land) {
-  @keyframes slide-in-future {
-    from {
-      transform: translateX(20%) scale(1);
-    }
-  }
-
-  @keyframes slide-out-future {
-    to {
-      transform: translateX(20%) scale(1);
-    }
-  }
-
-  @keyframes slide-in-infra {
-    from {
-      transform: translateY(-20%) scale(1);
-    }
-  }
-
-  @keyframes slide-out-infra {
-    to {
-      transform: translateY(-20%) scale(1);
-    }
-  }
-
-  @keyframes slide-in-simple {
-    from {
-      transform: translateX(-70%) scale(0.6);
-    }
-  }
-
-  @keyframes slide-out-simple {
-    to {
-      transform: translateX(-70%) scale(0.6);
-    }
-  }
-}
-
 @keyframes text-wave {
   50% {
     color: var(--color-primary);
@@ -162,3 +88,77 @@
     transform: none;
   }
 }
+
+// @keyframes slide-in-future {
+//   from {
+//     transform: translate(18%, -50%);
+//   }
+// }
+
+// @keyframes slide-out-future {
+//   to {
+//     transform: translate(18%, -50%);
+//   }
+// }
+
+// @keyframes slide-in-infra {
+//   from {
+//     transform: translate(-18%, -46%);
+//   }
+// }
+
+// @keyframes slide-out-infra {
+//   to {
+//     transform: translate(-18%, -46%);
+//   }
+// }
+
+// @keyframes slide-in-simple {
+//   from {
+//     transform: translate(-112%, -50%);
+//   }
+// }
+
+// @keyframes slide-out-simple {
+//   to {
+//     transform: translate(-112%, -50%);
+//   }
+// }
+
+// @media only screen and (max-width: $bp-phone-land) {
+//   @keyframes slide-in-future {
+//     from {
+//       transform: translateX(20%) scale(1);
+//     }
+//   }
+
+//   @keyframes slide-out-future {
+//     to {
+//       transform: translateX(20%) scale(1);
+//     }
+//   }
+
+//   @keyframes slide-in-infra {
+//     from {
+//       transform: translateY(-20%) scale(1);
+//     }
+//   }
+
+//   @keyframes slide-out-infra {
+//     to {
+//       transform: translateY(-20%) scale(1);
+//     }
+//   }
+
+//   @keyframes slide-in-simple {
+//     from {
+//       transform: translateX(-70%) scale(0.6);
+//     }
+//   }
+
+//   @keyframes slide-out-simple {
+//     to {
+//       transform: translateX(-70%) scale(0.6);
+//     }
+//   }
+// }
