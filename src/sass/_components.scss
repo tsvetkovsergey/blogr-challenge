@@ -51,11 +51,11 @@ button {
   @media (hover: hover) {
     &:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0.3rem 0.5rem hsla(0, 0, 1%, 0.2);
+      box-shadow: 0 0.3rem 0.5rem hsla(0, 0%, 1%, 0.2);
     }
     &:active {
       transform: translateY(-1px);
-      box-shadow: 0 0.2rem 0.5rem hsla(0, 0, 0%, 0.2);
+      box-shadow: 0 0.2rem 0.5rem hsla(0, 0%, 0%, 0.2);
     }
   }
 
