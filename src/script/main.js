@@ -285,20 +285,27 @@ ScrollTrigger.matchMedia({
   },
 
   "(max-width: 44em)": function () {
-    gsap.from(".future__bg", {
-      scrollTrigger: {
-        // markers: true,
-        trigger: ".future__bg",
-        start: "20% bottom",
-        end: "80% top",
-        toggleActions: "play reverse play reverse",
+    gsap.fromTo(
+      ".future__bg",
+      {
+        x: "15%",
+        y: 0,
+        autoAlpha: 0,
+        scale: 1.35,
       },
-      x: "15%",
-      y: "0",
-      autoAlpha: 0,
-      duration: 0.8,
-      scale: 1.35,
-    });
+      {
+        scrollTrigger: {
+          // markers: true,
+          trigger: ".future__bg",
+          start: "20% bottom",
+          end: "80% top",
+          toggleActions: "play reverse play reverse",
+        },
+        x: 0,
+        autoAlpha: 1,
+        duration: 0.8,
+      }
+    );
   },
 });
 
