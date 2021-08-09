@@ -40,12 +40,12 @@
       }
 
       @media only screen and (max-width: $bp-phone-land) {
-        position: relative;
+        position: static;
         display: block;
         top: 0;
         left: 50%;
 
-        // transform: translate(-50%, 0);
+        // transform: translate(-50%, 0) scale(0.6);
         width: calc(min(155%, 62rem));
       }
     }

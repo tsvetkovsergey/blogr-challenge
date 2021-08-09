@@ -1,8 +1,8 @@
 import "../sass/main.scss";
 import FutureImgMob from "../images/illustration-editor-mobile.svg";
 import FutureImgDesk from "../images/illustration-editor-desktop.svg";
-import SimpleImgMob from "../images/illustration-editor-mobile.svg";
-import SimpleImgDesk from "../images/illustration-editor-desktop.svg";
+import SimpleImgMob from "../images/illustration-laptop-mobile.svg";
+import SimpleImgDesk from "../images/illustration-laptop-desktop.svg";
 
 const nav = document.querySelector(".nav");
 const links = document.querySelectorAll(".nav__link");
@@ -320,6 +320,7 @@ ScrollTrigger.matchMedia({
       { x: "-65%", y: 0, autoAlpha: 0 },
       {
         scrollTrigger: {
+          markers: true,
           trigger: ".simple__bg",
           start: "20% bottom",
           end: "80% top",
