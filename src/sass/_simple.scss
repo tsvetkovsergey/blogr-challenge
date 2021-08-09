@@ -19,7 +19,13 @@
   }
 
   &__bg {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    // transform: translate(-12%, -50%);
+
     @media only screen and (max-width: $bp-phone-land) {
+      position: static;
       grid-column: center-start / center-end;
       // Other browsers
       margin: 0.5rem 0 3rem 0;
@@ -30,22 +36,17 @@
     }
 
     & > img {
-      position: absolute;
-      top: 50%;
-      right: 50%;
-      // transform: translate(-12%, -50%);
-
       @media only screen and (max-width: $bp-tab-port) {
-        width: 80%;
+        width: 90vw;
       }
 
       @media only screen and (max-width: $bp-phone-land) {
-        position: static;
+        position: relative;
         display: block;
         top: 0;
         left: 50%;
 
-        // transform: translate(-50%, 0) scale(0.6);
+        transform: translateX(-50%);
         width: calc(min(155%, 62rem));
       }
     }

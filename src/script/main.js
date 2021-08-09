@@ -40,10 +40,18 @@ let openedSublist = -1;
 // Tracks opened mobile menu
 let mobMenuOpened = false;
 
+// GSAP
+gsap.registerPlugin(ScrollTrigger);
+
 const setImages = function () {
   const str = mql.matches ? "mobile" : "desktop";
   future_img.src = str === "mobile" ? FutureImgMob : FutureImgDesk;
   simple_img.src = str === "mobile" ? SimpleImgMob : SimpleImgDesk;
+  [future_img, simple_img].forEach((img) => {
+    img.addEventListener("load", function (e) {
+      ScrollTrigger.refresh();
+    });
+  });
 };
 setImages();
 
@@ -240,9 +248,6 @@ hambox.addEventListener("click", function (e) {
 
 //////////////////////////////////////////
 // GSAP ANIMATIONS
-gsap.registerPlugin(ScrollTrigger);
-
-// const em = document.querySelector("#em-size").offsetHeight;
 
 gsap.to(".header__bg", {
   scrollTrigger: {
@@ -253,8 +258,8 @@ gsap.to(".header__bg", {
   top: "-50%",
 });
 
-// ScrollTrigger.saveStyles(".future__bg, .simple__bg > img");
-ScrollTrigger.saveStyles(".future__bg");
+ScrollTrigger.saveStyles(".future__bg, .simple__bg > img");
+// ScrollTrigger.saveStyles(".future__bg");
 
 ScrollTrigger.matchMedia({
   "not all and (max-width: 44em)": function () {
@@ -282,6 +287,7 @@ ScrollTrigger.matchMedia({
   "(max-width: 44em)": function () {
     gsap.from(".future__bg", {
       scrollTrigger: {
+        // markers: true,
         trigger: ".future__bg",
         start: "20% bottom",
         end: "80% top",
@@ -298,7 +304,7 @@ ScrollTrigger.matchMedia({
 ScrollTrigger.matchMedia({
   "not all and (max-width: 44em)": function () {
     gsap.fromTo(
-      ".simple__bg > img",
+      ".simple__bg",
       { x: "-27%", y: "-50%", autoAlpha: 0 },
       {
         scrollTrigger: {
@@ -307,7 +313,7 @@ ScrollTrigger.matchMedia({
           end: "70% top",
           toggleActions: "play reverse play reverse",
         },
-        x: "+=15%",
+        x: "-12%",
         autoAlpha: 1,
         duration: 0.8,
       }
@@ -316,17 +322,17 @@ ScrollTrigger.matchMedia({
 
   "(max-width: 44em)": function () {
     gsap.fromTo(
-      ".simple__bg > img",
-      { x: "-65%", y: 0, autoAlpha: 0 },
+      ".simple__bg",
+      { x: "-15%", y: 0, autoAlpha: 0 },
       {
         scrollTrigger: {
-          markers: true,
+          // markers: true,
           trigger: ".simple__bg",
           start: "20% bottom",
           end: "80% top",
           toggleActions: "play reverse play reverse",
         },
-        x: "-50%",
+        x: 0,
         autoAlpha: 1,
         duration: 0.8,
       }
