@@ -258,7 +258,7 @@ gsap.to(".header__bg", {
   top: "-50%",
 });
 
-ScrollTrigger.saveStyles(".future__bg, .simple__bg > img");
+ScrollTrigger.saveStyles(".future__bg, .simple__bg");
 // ScrollTrigger.saveStyles(".future__bg");
 
 ScrollTrigger.matchMedia({
@@ -297,6 +297,7 @@ ScrollTrigger.matchMedia({
       y: "0",
       autoAlpha: 0,
       duration: 0.8,
+      scale: 1.35,
     });
   },
 });
